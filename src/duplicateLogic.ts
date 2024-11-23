@@ -158,7 +158,7 @@ export async function findNearDuplicates(
       for (let j = 0; j < group.length; j++) {
         if (i !== j) {
           const sim = compareTwoStrings(group[i].code, group[j].code);
-          if (sim >= threshold) {
+          if (sim >= threshold && sim < 1) {
             // Ensure unique pairs using a canonical key
             const pairKey =
               [group[i].file, group[j].file].sort().join(":") +
